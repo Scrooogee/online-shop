@@ -2,11 +2,6 @@ import React from "react";
 import './cart.scss';
 
 function Cart({onClose, items = [], onRemove}) {
-    // const [itemsRemove, setItemsRemove] = React.useState(items)
-    
-    // const removeItems = (obj) => {
-    //     setItemsRemove(itemsRemove.splice(itemsRemove.indexOf(obj), 1))
-    // } 
     
 
     return (
@@ -35,8 +30,7 @@ function Cart({onClose, items = [], onRemove}) {
                     ))}
                 </div>
                 <div className="cart__bottom">
-                    <p className="cart__total-price">Total: <span>$200</span></p>
-                    <p className="cart__total-price">Tax 5%: <span>$4</span></p>
+                    <p className="cart__total-price">Total: <span>${items.length === 0 ? 0 : items.reduce((acc, item) => acc += +item.price, 0)}</span></p>
                     <button type="button" className="cart__button">Buy</button>
                 </div>
             </div>

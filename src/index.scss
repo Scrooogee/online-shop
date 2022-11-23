@@ -41,11 +41,42 @@ body {
     margin-bottom: 30px;
   }
 
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -20px
+  &__goods {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content;
+    gap: 20px;
 
+    @media(min-width: 840px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media(min-width: 980px) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+
+}
+
+.filter-box {
+  grid-column-start: 1;
+}
+
+
+
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -20px;
+  
+  @media(min-width: 840px) {
+      grid-column-start: 2;
+      grid-column-end: 4;
+  }
+
+  @media(min-width: 980px) {
+    grid-column-end: 5;
   }
 }
 

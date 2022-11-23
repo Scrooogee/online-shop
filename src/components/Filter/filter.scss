@@ -1,0 +1,69 @@
+.filter {
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #F3F3F3;
+    border-radius: 40px;
+    padding: 25px;
+
+    &__titel {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 39px;
+        color: #000000;
+        margin-bottom: 15px;
+    }
+
+    .button__wraper {
+        display: flex;
+        flex-wrap: wrap;
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__button {
+        background-color: #F3F3F3;
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        &:active {
+            background-color: #3CC755;
+            color: #FFFFFF;
+        }
+
+    }
+
+    &__radio {
+        span {
+            background-color: #F3F3F3;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 13px;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        input {
+            display: none;
+
+            &:checked + span {
+                background-color: #3CC755;
+                color: #FFFFFF;
+            }
+        }
+
+    }
+}
