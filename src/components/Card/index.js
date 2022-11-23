@@ -1,7 +1,7 @@
 import React from 'react';
 import './card.scss';
 
-function Card({name, imgUrl, price, onPlus, offPlus}) {
+function Card({name, imgUrl, price, onPlus, offPlus, items = []}) {
     const [isAdded, setIsAdded] = React.useState(false)
     
     const onClickPlus = () => {

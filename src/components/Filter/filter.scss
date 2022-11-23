@@ -21,25 +21,6 @@
         }
     }
 
-    &__button {
-        background-color: #F3F3F3;
-        border: none;
-        border-radius: 10px;
-        padding: 10px;
-        margin-bottom: 10px;
-        cursor: pointer;
-
-        &:not(:last-child) {
-            margin-right: 10px;
-        }
-
-        &:active {
-            background-color: #3CC755;
-            color: #FFFFFF;
-        }
-
-    }
-
     &__radio {
         span {
             background-color: #F3F3F3;
@@ -50,6 +31,10 @@
             font-size: 13px;
             cursor: pointer;
             display: inline-block;
+
+            &:hover {
+                background-color: #ededed;
+            }
         }
 
         &:not(:last-child) {
@@ -60,7 +45,7 @@
             display: none;
 
             &:checked + span {
-                background-color: #3CC755;
+                background-color: #59befe;
                 color: #FFFFFF;
             }
         }

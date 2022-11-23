@@ -1,9 +1,9 @@
 import React from 'react';
+import {Route} from "react-router-dom";
 import Header from './components/Header';
-import Card from './components/Card';
 import Cart from './components/Cart'
 import axios from 'axios';
-import Filter from './components/Filter';
+import Home from './pages/Home';
 
 
 // const goodsArr = [
@@ -75,6 +75,7 @@ function App() {
   const [cartOpened, setCartOpened] = React.useState(false)
   const [cartItems, setCartItems] = React.useState([])
 
+
   React.useEffect(() => {
     axios.get('https://637c4a6372f3ce38ea9edc01.mockapi.io/Items').then(res => setAllItems(res.data));
     axios.get('https://637c4a6372f3ce38ea9edc01.mockapi.io/mdnjksbadnjkvnfs').then(res => setCartItems(res.data))
@@ -108,41 +109,17 @@ function App() {
     <Header 
     onCLickCart = {() => setCartOpened(true)}
     items = {cartItems}/>
-    <div className="content">
-      <h1 className="content__titel">Sneakers</h1>
-      <div className='content__goods'>
-        <div className='filter-box'>
-          <Filter
-          sortMaxPrice = {clickMaxPrice}
-          sortMinprice = {clickMinPrice} 
-          filterAll = {() => {
-            axios.get('https://637c4a6372f3ce38ea9edc01.mockapi.io/Items').then(res => setAllItems(res.data));
-          }}
-          filterNike = { () => {
-            axios.get('https://637c4a6372f3ce38ea9edc01.mockapi.io/Items?filter=nike').then(res => setAllItems(res.data))
-          }}
-          filterPuma = {() => {
-            axios.get('https://637c4a6372f3ce38ea9edc01.mockapi.io/Items?filter=puma').then(res => setAllItems(res.data))
-          }}
-          filterAndArm = {() => {
-            axios.get('https://637c4a6372f3ce38ea9edc01.mockapi.io/Items?filter=under').then(res => setAllItems(res.data))
-          }}
-          />
-        </div>
-        <div className="cards">
-          {allItems.map((item, index) => (
-            <Card 
-              key = {index}
-              name = {item.name} 
-              price = {item.price} 
-              imgUrl = {item.img}
-              onPlus = {(obj) => onAddToCart(obj)}
-              offPlus = {onRemoveItems}
-              />
-          ))}
-        </div>
-      </div>
-    </div>
+    <Route path='/' exact>
+      <Home 
+        allItems = {allItems}
+        onAddToCart = {onAddToCart}
+        clickMaxPrice = {clickMaxPrice}
+        clickMinPrice = {clickMinPrice}
+        onRemoveItems = {onRemoveItems}
+        cartItems = {cartItems}
+        setAllItems = {setAllItems}
+      />
+    </Route>
 
   </div>
   );
