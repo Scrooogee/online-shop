@@ -2,17 +2,18 @@ import React from 'react';
 import axios from 'axios';
 import Card from '../components/Card';
 import Filter from '../components/Filter';
+import {AppContext} from '../App'
 
 
-function Home({allItems, onAddToCart, clickMaxPrice, clickMinPrice, onRemoveItems,cartItems, setAllItems}) {
+function Home({setAllItems, loading}) {
+
+    const {allItems, onAddToCart, itemIsAdded} = React.useContext(AppContext)
     return (
         <div className="content">
       <h1 className="content__titel">Sneakers</h1>
       <div className='content__goods'>
         <div className='filter-box'>
           <Filter
-          sortMaxPrice = {clickMaxPrice}
-          sortMinprice = {clickMinPrice} 
           filterAll = {() => {
             axios.get('https://637c4a6372f3ce38ea9edc01.mockapi.io/Items').then(res => setAllItems(res.data));
           }}
@@ -28,16 +29,21 @@ function Home({allItems, onAddToCart, clickMaxPrice, clickMinPrice, onRemoveItem
           />
         </div>
         <div className="cards">
-          {allItems.map((item, index) => (
-            <Card 
-              key = {index}
-              name = {item.name} 
-              price = {item.price} 
-              imgUrl = {item.img}
-              onPlus = {(obj) => onAddToCart(obj)}
-              offPlus = {onRemoveItems}
-              items = {cartItems}
+            {loading ?  [...Array(9)].map((item) => (
+                <Card 
+                onPlus = {(obj) => onAddToCart(obj)}
+                loading = {loading}
+                {...item}
               />
+          )) :  allItems.map((item, index) => (
+            <Card 
+            added = {itemIsAdded(item.id)}
+            key = {index}
+            onPlus = {(obj) => onAddToCart(obj)}
+            loading = {loading}
+            {...item}
+          />
+
           ))}
         </div>
       </div>

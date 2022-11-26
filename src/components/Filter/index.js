@@ -1,8 +1,10 @@
+import React from 'react'
 import './filter.scss'
+import {AppContext} from '../../App'
 
-function Filter({sortMaxPrice, sortMinprice, filterAll, filterNike, filterPuma, filterAndArm}) {
+function Filter({filterAll, filterNike, filterPuma, filterAndArm}) {
 
-    
+    const {clickMaxPrice, clickMinPrice} = React.useContext(AppContext)
 
     return (
         <div className='filter'>
@@ -11,11 +13,11 @@ function Filter({sortMaxPrice, sortMinprice, filterAll, filterNike, filterPuma, 
             </h4>
             <form className='button__wraper'>
                 <label className='filter__radio'>
-                    <input onClick={sortMaxPrice} type={'radio'} name={'priceSort'} value={'max'}></input>
+                    <input onClick={clickMaxPrice} type={'radio'} name={'priceSort'} value={'max'}></input>
                     <span>Max Price</span>
                 </label>
                 <label className='filter__radio'>
-                    <input onClick={sortMinprice} type={'radio'} name={'priceSort'} value={'min'}></input>
+                    <input onClick={clickMinPrice} type={'radio'} name={'priceSort'} value={'min'}></input>
                     <span>Min Price</span>
                 </label>
             </form>

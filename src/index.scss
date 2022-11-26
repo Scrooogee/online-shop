@@ -31,7 +31,7 @@ body {
 }
 
 .content {
-  padding: 0 60px;
+  padding: 0 30px;
 
   &__titel {
     font-weight: 700;
@@ -56,14 +56,15 @@ body {
     }
   }
 
+  @media(min-width: 667px) {
+    padding: 0 60px;
+  }
+
 }
 
 .filter-box {
   grid-column-start: 1;
 }
-
-
-
 
 .cards {
   display: flex;
@@ -77,6 +78,53 @@ body {
 
   @media(min-width: 980px) {
     grid-column-end: 5;
+  }
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+
+  &__img img {
+    width: auto;
+    max-height: 400px;
+  }
+
+  &__text-box {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  &__titel {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 25px;
+    color: #000000;
+    margin-bottom: 15px;
+    align-self: center;
+  }
+  
+  &__price {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 13px;
+    text-transform: uppercase;
+    color: #5d5d5d;
+    margin-bottom: 7px;
+  }
+
+  &__button {
+    margin-top: 20px;
+    width: 100%;
+    height: 55px;
+    background: #59befe;
+    border: none;
+    border-radius: 18px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    cursor: pointer;
   }
 }
 

@@ -64,7 +64,7 @@
         }
 
         &__item-box {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             overflow: scroll;
         }
 
@@ -134,7 +134,7 @@
         }
 
         &__button {
-            margin-top: 20px;
+            margin-top: 10px;
             width: 100%;
             height: 55px;
             background: #59befe;
@@ -149,6 +149,36 @@
 
         @media(min-width: 576px) {
             width: 410px;
+        }
+
+
+
+        &__empty {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 95%; 
+            
+
+            &-titel {
+                font-weight: 700;
+                font-size: 32px;
+                line-height: 29px;
+                color: #000000;
+                text-align: center;
+
+                &:not(:last-child) {
+                    margin-bottom: 10px;
+                }
+            }
+
+            &-img {
+                align-self: center;
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+
+
         }
 
         
