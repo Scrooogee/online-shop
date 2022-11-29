@@ -10,73 +10,73 @@ export const AppContext = React.createContext()
 
 // const goodsArr = [
 // {
-//      "id": 1
+//      "id": "1"
 //   "name": "Nike Blazer Mid Suede Men's Sneakers",
 //   "price": 200,
 //   "img": "/img/sneakers_1.png"
 // },
 // {
-//      "id": 2
+//      "id": "2"
 //   "name": "Nike Blazer Mid Suede Men's Sneakers",
 //   "price": 249,
 //   "img": "/img/sneakers_2.png"
 // },
 // {
-//      "id": 3
+//      "id": "3"
 //   "name": "Nike Air Max 270 Men's Running Shoes",
 //   "price": 249,
 //   "img": "/img/sneakers_3.png"
 // },
 // {
-//      "id": 4 
+//      "id": "4" 
 //   "name": "Nike Blazer Mid Suede Men's Sneakers",
 //   "price": 149,
 //   "img": "/img/sneakers_4.png"
 // },
 // {
-//      "id": 5
+//      "id": "5"
 //   "name": "Puma X Aka Boku Future Rider sneakers",
 //   "price": 179,
 //   "img": "/img/sneakers_5.png"
 // },
 // {
-//      "id": 6
+//      "id": "6"
 //   "name": "Under Armor Curry 8 Men's Sneakers",
 //   "price": 329,
 //   "img": "/img/sneakers_6.png"
 // },
 // {
-//      "id": 7
+//      "id": "7"
 //   "name": "Nike LeBron XVIII Men's Sneakers",
 //   "price": 299,
 //   "img": "/img/sneakers_7.png"
 // },
 // {
-//      "id": 8
+//      "id": "8"
 //   "name": "Nike Blazer Mid Suede Men's Sneakers",
 //   "price": 149,
 //   "img": "/img/sneakers_8.png"
 // },
 // {
-//      "id": 9
+//      "id": "9"
 //   "name": "Puma X Aka Boku Future Rider sneakers",
 //   "price": 239,
 //   "img": "/img/sneakers_9.png"
 // },
 // {
-//      "id": 10
+//      "id": "10"
 //   "name": "Nike Kyrie Flytrap IV Men's Sneakers",
 //   "price": 249,
 //   "img": "/img/sneakers_10.png"
 // },
 // {
-//      "id": 11
+//      "id": "11"
 //   "name": "Nike Kyrie 7 Men's Sneakers",
 //   "price": 199,
 //   "img": "/img/sneakers_11.png"
 // },
 // {
-//      "id": 12
+//      "id": "12"
 //   "name": "Jordan Air Jordan 11 Men's Sneakers",
 //   "price": 219,
 //   "img": "/img/sneakers_12.png"
@@ -88,7 +88,6 @@ function App() {
   const [allItems, setAllItems] = React.useState([]);
   const [cartOpened, setCartOpened] = React.useState(false);
   const [cartItems, setCartItems] = React.useState([]);
-  const [productPage, setProductPage] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true)
 
 
@@ -115,11 +114,6 @@ function App() {
       }
 
   }
-  
-  const openProductPage = (obj) => {
-    setProductPage(prev => [...prev, obj])
-  }
-
 
   const onRemoveItems = (id) => {
     axios.delete(`https://637c4a6372f3ce38ea9edc01.mockapi.io/mdnjksbadnjkvnfs/${id}`)
@@ -157,10 +151,8 @@ function App() {
             />
             }>
             </Route>
-            <Route path='/product:id' element={
-              <ProductPage 
-              product = {productPage}
-              onAdd = {onAddToCart}/>
+            <Route path='/product/:id' element={
+              <ProductPage />
             }>
             </Route>
           </Routes>
