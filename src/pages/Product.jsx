@@ -24,7 +24,7 @@ function ProductPage() {
     const img = product?.data?.img
     
     const onClickAddToCart = () => {
-        onAddToCart({id, name, price, img})
+        onAddToCart({id, parentId : id, name, price, img})
     }
     
     return (

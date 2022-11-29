@@ -9,7 +9,7 @@ function Card({id, name, img, price, onPlus, loading = false}) {
     const {itemIsAdded} = React.useContext(AppContext)
 
     const onClickPlus = () => {
-        onPlus({id, name, img, price})
+        onPlus({id, parentId: id,  name, img, price})
     }
     let navigate = useNavigate()
 
