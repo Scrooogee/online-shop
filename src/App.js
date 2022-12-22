@@ -110,10 +110,9 @@ function App() {
         setCartItems(prev => prev.filter(item => +item.parentId !== +obj.id))
         await axios.delete(`https://637c4a6372f3ce38ea9edc01.mockapi.io/mdnjksbadnjkvnfs/${findItems.id}`)
       } else {
-        const {data} = await axios.post('https://637c4a6372f3ce38ea9edc01.mockapi.io/mdnjksbadnjkvnfs', obj)
-        setCartItems(prev => [...prev, data])
+        setCartItems(prev => [...prev, obj])
+        await axios.post('https://637c4a6372f3ce38ea9edc01.mockapi.io/mdnjksbadnjkvnfs', obj)
       }
-
   }
 
   const onRemoveItems = (id) => {
@@ -154,6 +153,13 @@ function App() {
             </Route>
             <Route path='/product/:id' element={
               <ProductPage />
+            }>
+            </Route>
+            <Route path='/cart' element={
+            <Cart 
+            items = {cartItems}
+            onRemove = {onRemoveItems}
+            />
             }>
             </Route>
           </Routes>

@@ -6,6 +6,7 @@ function Filter({filterAll, filterNike, filterPuma, filterAndArm}) {
 
     const {clickMaxPrice, clickMinPrice} = React.useContext(AppContext)
 
+    
     return (
         <div className='filter'>
             <h4 className='filter__titel'>
